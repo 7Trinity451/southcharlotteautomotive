@@ -16,18 +16,13 @@
 	   
   } 
   h1{
- text-align: center;
  font-size:170px;
   background-size: contain;
- background-clip:text;
- -webkit-background-clip:text;
  color: #CC000A;
- 
 
   }
     p{
 		position:relative;
- text-align: center;
  font-size:45px;
  color: #CC000A;
  max-width: 100%;
@@ -93,6 +88,7 @@ h2{
  text-align: center;
  font-size:100%
 }
+
 
 
 
