@@ -21,11 +21,7 @@
 			<center><img src="Service.png" style="width:30vh;height:auto;"></a></center>
 	
 	
- <script>	if (screen.orientation && screen.orientation.lock) {
-		screen.orientation.lock('portrait'). catch(function(error){
-		console.log("Lock failed", error);
-		});
-		}</script>
+ 
    <style type="text/css">
    *
 {
@@ -138,15 +134,16 @@ nav a:nth-child(5):hover~span{
 		   left: 25vw;
 		
 	}
-	  @media only screen and orientation: landscape){
-		  body{
-			  transform : rotate(90deg);
-			  transform-origin:bottom left;
+	  @media  screen and (orientation: landscape){
+		  html{
+			  transform : rotate(-90deg);
+			  transform-origin:left top;
 			  width: 100vh;
 			  height: 100vw;
-			  position: relative;
-			  top:65vh;
-			  left:25vw;
+			  overflow-x: hidden;
+			  position: absolute;
+			  top:1005;
+			  left:0;
 			  }
 	  }
   </style>
@@ -161,6 +158,7 @@ nav a:nth-child(5):hover~span{
 		
 </body>
  </html>
+
 
 
 
