@@ -21,11 +21,11 @@
 			<center><img src="Service.png" style="width:30vh;height:auto;"></a></center>
 	
 	
- 	if (screen.orientation && screen.orientation.lock) {
+ <script>	if (screen.orientation && screen.orientation.lock) {
 		screen.orientation.lock('portrait'). catch(function(error){
 		console.log("Lock failed", error);
 		});
-		}
+		}</script>
    <style type="text/css">
    *
 {
@@ -161,6 +161,7 @@ nav a:nth-child(5):hover~span{
 		
 </body>
  </html>
+
 
 
 
