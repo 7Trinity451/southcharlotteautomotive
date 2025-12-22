@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html>
 	<head>
-  <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi, initial-scale=0.5:,user-scalable=yes, maximum-scale:0.5 to 0.9"/>
+  <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi, initial-scale=0.57:,user-scalable=yes, maximum-scale:0.5 to 0.9"/>
  </head>
   <body>
     <nav>
@@ -15,6 +15,39 @@
 
     </nav>
     <center><h1> Make an Appointment With Us!</h1></center>
+	   <style>
+  #landscape-warning {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-top: 40vh;
+    z-index: 9999;
+  }
+</style>
+
+<div id="landscape-warning">
+  Please rotate your device to portrait mode 📱
+</div>
+
+<script>
+  function checkOrientation() {
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (isMobile && window.innerWidth > window.innerHeight) {
+      document.getElementById('landscape-warning').style.display = 'block';
+    } else {
+      document.getElementById('landscape-warning').style.display = 'none';
+    }
+  }
+
+  window.addEventListener('resize', checkOrientation);
+  window.addEventListener('orientationchange', checkOrientation);
+  checkOrientation();
+</script>
+
   <style type="text/css">
   *
 {
@@ -22,6 +55,19 @@
 	padding: 0;
 
 }
+	   @media screen and (max-width:768px){
+			   
+			   .Group1 {
+				   flex-direction: column;
+				   padding:15px;
+				   top:35vh !important;
+		   left: 4vw !important;
+			   }
+			   .text-block {
+				   width:100%;
+				   margin-bottom: 10px
+		   }
+		   }
   nav{
 	position: center;
 	width: 103%;
@@ -106,11 +152,15 @@ font-family: Courier New;
 }
 
 .container{ 
-  position: relative;
-  width: 103%;
+  position: center;
+	 		width:100%;
+	 float: right
+
   }
   .container img{
-	  width: 103%;
+	width:110%;
+	  float: right
+
   }
   .text{
 	  position: center;
@@ -132,15 +182,14 @@ font-family: Courier New;
 	  font-family: Courier New;
 	  font-size:100%;
   }
-	   .Group1{
+	    .Group1{
 		position:absolute;
-			top:60px;
-	left:22rem;
+		 
+							   top:85vh;
+		   left: 27vw;
 		
-		display:inline-block;
 	}
 	</style>
-    </body>  
 	<form class= "submission-form"action="https://formsubmit.co/southcharlotteautomotive@gmail.com" method="POST"> 
 	<div>
 	<label for ="fname"> First Name:</label>
@@ -195,16 +244,19 @@ font-family: Courier New;
 	</div>
 	
 	</form>
-	<div class="container">
- <img src= "White.png"  height= "200 px" width= "100%"/>
+	<center> <div class=	"container"></center>
+<center> <img src= "White.png"  height= "200 px" width= "110%"/>  </center>
    <div class="Group1">
  <center><div class="text">1325 Emerywood Dr. Charlotte NC 28210</div></center>
   <center><div class="text1">Contact Our Service Department @ 704-552-2459</div></center>
    <center> <div class="text2">Email Us: SOUTHCHARLOTTEAUTOMOTIVE@GMAIL.COM</div></center>
 	  <center><div class="text3">Shop Hours: Monday-Friday:8:00am-5:00pm Saturday-Sunday:Closed</div></center>
-</div>
+	   </div>
+		</div>
+		
+</body>
+ </html>
 
-    </html>
 
 
 
