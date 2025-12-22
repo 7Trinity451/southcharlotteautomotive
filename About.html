@@ -72,7 +72,39 @@
 		<img src="SparkPlug.png"height= "40 rem" width= "40 rem" />
 			 <div class="spark">Tune-Ups</div> 
 		  </div>
-	
+	<style>
+  #landscape-warning {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-top: 40vh;
+    z-index: 9999;
+  }
+</style>
+
+<div id="landscape-warning">
+  Please rotate your device to portrait mode 📱
+</div>
+
+<script>
+  function checkOrientation() {
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (isMobile && window.innerWidth > window.innerHeight) {
+      document.getElementById('landscape-warning').style.display = 'block';
+    } else {
+      document.getElementById('landscape-warning').style.display = 'none';
+    }
+  }
+
+  window.addEventListener('resize', checkOrientation);
+  window.addEventListener('orientationchange', checkOrientation);
+  checkOrientation();
+</script>
+
 <style type="text/css">
 *
 {
@@ -80,6 +112,22 @@
 	padding: 0;
 
 }
+	 @media screen and (max-width:768px){
+			   html{ 
+				overflow-x: hidden !important;
+			}
+			   
+			   .Group1 {
+				   flex-direction: column;
+				   padding:15px;
+				   top:35vh !important;
+		   left: 4vw !important;
+			   }
+			   .text-block {
+				   width:100%;
+				   margin-bottom: 10px
+		   }
+		   }
 	.container1{ 
   position: flex;
   max-width:103%;
@@ -327,6 +375,7 @@ nav a:nth-child(5):hover~span{
 </div>
 </body> 
 </html>
+
 
 
 
