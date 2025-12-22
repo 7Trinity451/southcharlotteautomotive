@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 	<html>
   <head>
-	  <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi, initial-scale=0.5,user-scalable=no,">
+	  <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi, initial-scale=0.57,user-scalable=yes,">
   <link rel = "stylesheet" href= "style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
  </head>
@@ -30,13 +30,57 @@
 			</div>
    
    
+<style>
+  #landscape-warning {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-top: 40vh;
+    z-index: 9999;
+  }
+</style>
 
+<div id="landscape-warning">
+  Please rotate your device to portrait mode 📱
+</div>
+
+<script>
+  function checkOrientation() {
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (isMobile && window.innerWidth > window.innerHeight) {
+      document.getElementById('landscape-warning').style.display = 'block';
+    } else {
+      document.getElementById('landscape-warning').style.display = 'none';
+    }
+  }
+
+  window.addEventListener('resize', checkOrientation);
+  window.addEventListener('orientationchange', checkOrientation);
+  checkOrientation();
+</script>
 	<style type="text/css">
 		*{
 	margin: 0;
 	padding: 0;
 		
 }
+		@media screen and (max-width:768px){
+			   
+			   .Group1 {
+				   flex-direction: column;
+				   padding:15px;
+				   top:63vh !important;
+		   left: 4vw !important;
+			   }
+			   .text-block {
+				   width:100%;
+				   margin-bottom: 10px
+		   }
+		   }
   body{
 
 	   display: static;
@@ -148,24 +192,29 @@ position:center;
 
   }
 
-		 .container{ 
-			float:right;
-  position: relative;
-  width: 100%;
+		.container{ 
+  position: center;
+	 		width:100%;
+	 float: right
+
   }
   .container img{
-	  float: right;
-	 width: 110%;
+	width:110%;
+	  float: right
+
   }
-		.Group1{
+		 .Group1{
 		position:absolute;
-		left: 10vw;
-		display:inline-block;
+		 
+							   top:79vh;
+		   left: 27vw;
+		
 	}
+	
 </style>
 
-	<div class="container">
- <img src= "White.png"  height= "200px" width= "110%"/></div>
+	<center><div class="container"></center>
+<center> <img src= "White.png"  height= "200px" width= "110%"/></div></center>
 			 <div class="Group1">
 <center><div class="textmain"> Connect With Us!</div></center>
 <center><a href="https://www.facebook.com/profile.php"><i class="fa-brands fa-facebook"></i></a>
@@ -183,6 +232,7 @@ position:center;
 			  <span></span>
 	     </body>
    </html>
+
 
 
 
