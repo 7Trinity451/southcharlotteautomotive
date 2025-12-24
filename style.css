@@ -3,12 +3,12 @@
 
 nav{
 	position: center;
-	width: 99.5%;
+	width: 99.9%;
 	top:0;
 	height: 30px;
 	background-color: #F5F5F0;
 	border-radius: 5px;
-	display: flex;
+	display: center;
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
@@ -51,6 +51,7 @@ nav a:nth-child(5):hover~span{
 	left:380px;
 }
 	
+
 
 
 
