@@ -6,7 +6,7 @@
 	
  nav{
 	position: center;
-	max-width: 103%;
+	width: 103%;
 	top:0;
 	height: 30px;
 	background-color: #F5F5F0;
@@ -24,7 +24,7 @@ font-size: 1em;
 font-weight: 500;
 color: black;
 text-decoration:none;
-padding:0 23px;
+padding:5 15px;
 z-index:100;
 }
 
@@ -52,6 +52,7 @@ nav a:nth-child(4):hover~span{
 nav a:nth-child(5):hover~span{
 	left:380px;
 }
+
 
 
 
