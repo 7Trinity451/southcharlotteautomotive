@@ -2,8 +2,6 @@
 	<html>
   <head>
 	  <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi, initial-scale=0.5,user-scalable=yes," maximum-scale:0.5 to 0.9"/>
-  <link rel = "stylesheet" href= "style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
  </head>
 	<nav>
 <img src="MainPicture.png" style="width:42px;height:42px;"></a>
@@ -14,14 +12,8 @@
 		<a href=   "http://7trinity451.github.io/southcharlotteautomotive/Contact.html">Contact</a>
 <a href=  "http://7trinity451.github.io/southcharlotteautomotive/MakeAppt.html">Book Now!</a>
 <a href=  "http://7trinity451.github.io/southcharlotteautomotive/MakeAppt.html">Resources</a>
-
-
-
-
 	</nav>
 		 <body>
-
-   
 <style>
   #landscape-warning {
     display: none;
@@ -62,13 +54,22 @@
 		
 }
 		@media screen and (max-width:768px){
-			html{ 
+			   html{ 
 				overflow-x: hidden !important;
 			}
 			   
+			   .Group1 {
+				   flex-direction: column;
+				   padding:15px;
+				   top:50vh !important;
+		   left: 4vw !important;
 			   }
-			
-		}
+			   .text-block {
+				   width:100%;
+				   margin-bottom: 10px
+		   }
+		   }
+		
   body{
 
 	   display: static;
