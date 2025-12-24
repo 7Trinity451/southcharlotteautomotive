@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+	<html>
+  <head>
+	  <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi, initial-scale=0.5,user-scalable=yes," maximum-scale:0.5 to 0.9"/>
+  <link rel = "stylesheet" href= "style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ </head>
+	<nav>
+<img src="MainPicture.png" style="width:42px;height:42px;"></a>
+		<a href= "http://7trinity451.github.io/southcharlotteautomotive/index.html">Home</a>
+			<a href=  "http://7trinity451.github.io/southcharlotteautomotive/About.html">About</a>
+		<a href=   "http://7trinity451.github.io/southcharlotteautomotive/Services1.html">Services</a>
+		<a href=   "http://7trinity451.github.io/southcharlotteautomotive/Pricing.html">Pricing</a>
+		<a href=   "http://7trinity451.github.io/southcharlotteautomotive/Contact.html">Contact</a>
+<a href=  "http://7trinity451.github.io/southcharlotteautomotive/MakeAppt.html">Book Now!</a>
+<a href=  "http://7trinity451.github.io/southcharlotteautomotive/MakeAppt.html">Resources</a>
+
+
+
+
+	</nav>
+		 <body>
+
+   
+<style>
+  #landscape-warning {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-top: 40vh;
+    z-index: 9999;
+  }
+</style>
+
+<div id="landscape-warning">
+  Please rotate your device to portrait mode 📱
+</div>
+
+<script>
+  function checkOrientation() {
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (isMobile && window.innerWidth > window.innerHeight) {
+      document.getElementById('landscape-warning').style.display = 'block';
+    } else {
+      document.getElementById('landscape-warning').style.display = 'none';
+    }
+  }
+
+  window.addEventListener('resize', checkOrientation);
+  window.addEventListener('orientationchange', checkOrientation);
+  checkOrientation();
+</script>
+	<style type="text/css">
+		*
+		{
+	margin: 0;
+	padding: 0;
+		
+}
+		@media screen and (max-width:768px){
+			html{ 
+				overflow-x: hidden !important;
+			}
+			   
+			   }
+			
+		}
+  body{
+
+	   display: static;
+	   justify-content:center;
+	   align-items: center;
+	   min-height:100vh;
+	   background-color: #7c7c7c;
+	  	   overflow-x:hidden;
+	   max-width: 1350px;
+	 }
+	 
+
+		.container{ 
+  position: center;
+	 		width:100%;
+	 float: right;
+
+  }
+  .container img{
+	width:110%;
+	  float: right;
+
+		
+	}
+	
+</style>
+
+	<center><div class="container"></center>
+<center> <img src= "White.png"  height= "200px" width= "110%"/></div></center>
+
+	     </body>
+   </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
