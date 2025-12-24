@@ -7,7 +7,7 @@ nav{
 	top:0;
 	height: 30px;
 	background-color: #F5F5F0;
-	border-radius: 5px;
+	border-radius: 0px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -51,6 +51,7 @@ nav a:nth-child(5):hover~span{
 	left:380px;
 }
 	
+
 
 
 
