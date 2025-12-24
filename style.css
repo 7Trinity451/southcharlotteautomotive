@@ -11,11 +11,11 @@ nav{
 	top:0px;
 	height: 30px;
 	background-color: #F5F5F0;
-	border-radius: 5px;
+	border-radius: 6px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 2rem;
+	padding: 1rem;
 	 font-family: Courier New;
 }
 nav a{ 
@@ -54,6 +54,7 @@ nav a:nth-child(4):hover~span{
 nav a:nth-child(5):hover~span{
 	left:380px;
 }
+
 
 
 
