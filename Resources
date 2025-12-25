@@ -25,7 +25,7 @@
 </div>
 </div>
 <div class="card-container">
-<div class="card2">
+<div class="card1">
 <img src="MotorOil.jpg">
 <div class=" card-content">
 <h3> What is the average cost of an oil change?</h3>
@@ -35,8 +35,8 @@
 </div>
 </div>
 <div class="card-container">
-<div class="card3">
-<img src="TuneUp.jpg">
+<div class="card1">
+<img src="MotorOil.jpg">
 <div class=" card-content">
 <h3> What is the average tune up cost?</h3>
 <p> The average tune-up cost can range from $100-$800+. Tune-up services should be done every 60,000-100,000 miles.</p>
@@ -79,13 +79,10 @@
 	<style type="text/css">
 		*
 		{
-	margin: 0px;
-	padding: 0px;
-box-sizing: border box;
-font-family: courier new;
+	margin: 0;
+	padding: 0;
 		
 }
-
 		@media screen and (max-width:768px){
 			   html{ 
 				overflow-x: hidden !important;
@@ -93,7 +90,6 @@ font-family: courier new;
 		   }
 		
   body{
-
 	   display: static;
 	   justify-content:center;
 	   align-items: center;
@@ -164,22 +160,6 @@ overflow: hidden;
 box-shadow:0px 2px 4px rgba(0,0,0,0.2);
 margin:20px;
 }
-.card2{
-width:325px;
-background-color:#f0f0f0;
-border-radius: 8px;
-overflow: hidden;
-box-shadow:0px 2px 4px rgba(0,0,0,0.2);
-margin:20px;
-}
-.card3{
-width:325px;
-background-color:#f0f0f0;
-border-radius: 8px;
-overflow: hidden;
-box-shadow:0px 2px 4px rgba(0,0,0,0.2);
-margin:20px;
-}
 		.container{ 
   position: center;
 	 		width:100%;
@@ -189,17 +169,58 @@ margin:20px;
   .container img{
 	width:110%;
 	  float: right;
-
-		
 	}
 	
 </style>
-
 	<center><div class="container"></center>
 <center> <img src= "White.png"  height= "200px" width= "110%"/></div></center>
-
 	     </body>
    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
