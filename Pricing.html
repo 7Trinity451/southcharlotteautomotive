@@ -21,6 +21,44 @@
  <meta name="viewport" content="width=device-width,initial-scale=0.57, target-densitydpi=device-dpi, user-scalable=no, maximum-scale:0.57"/>
  </head>
   <body>
+	    <div id="zoomError">
+    ❌ Please reset your browser zoom to 100% for the best experience.
+</div>
+	  <script>
+(function () {
+    const zoomError = document.getElementById('zoomError');
+
+    function isMobile() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    // Cross-browser zoom detection
+    function getZoomLevel() {
+        // Compare window.innerWidth to screen.availWidth
+        const ratio = window.outerWidth / window.innerWidth;
+        return Math.round(ratio * 100);
+    }
+
+    function checkZoom() {
+        if (isMobile()) {
+            zoomError.style.display = 'none';
+            return;
+        }
+
+        const zoomLevel = getZoomLevel();
+
+        // Allow ±5% tolerance
+        if (Math.abs(zoomLevel - 100) > 5) {
+            zoomError.style.display = 'block';
+        } else {
+            zoomError.style.display = 'none';
+        }
+    }
+
+    window.addEventListener('load', checkZoom);
+    window.addEventListener('resize', checkZoom);
+})();
+</script>
 <nav>
 <img src="MainPicture.png" style="width:42px;height:42px;"></a>
 				<a href= "http://7trinity451.github.io/southcharlotteautomotive/index.html">Home</a>
@@ -257,6 +295,7 @@ h1{
 		
 </body>
  </html>
+
 
 
 
