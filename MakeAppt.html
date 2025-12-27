@@ -28,24 +28,27 @@
 (function () {
     const zoomError = document.getElementById('zoomError');
 
+    // Detect if device is mobile
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
+    // Get zoom level as a percentage
     function getZoomLevel() {
-        // devicePixelRatio is more reliable for zoom detection
         return Math.round(window.devicePixelRatio * 100);
     }
 
+    // Check zoom and show/hide error
     function checkZoom() {
         if (isMobile()) {
-            // Don't show zoom error on mobile devices
             zoomError.style.display = 'none';
             return;
         }
 
         const zoomLevel = getZoomLevel();
-        if (zoomLevel !== 100) {
+
+        // Allow ±5% tolerance to avoid false positives
+        if (Math.abs(zoomLevel - 100) > 5) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -354,6 +357,7 @@ font-family: Courier New;
 </body>
 		</div>
  </html>
+
 
 
 
