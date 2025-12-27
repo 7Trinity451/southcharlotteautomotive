@@ -53,20 +53,7 @@
   window.addEventListener('orientationchange', checkOrientation);
   checkOrientation();
 </script>
-<style>
- function checkZoom() {
-	 const errorElement = document.getElementById('zoom-error);
-	 const zoomLevel = window.devicePixelRatio;
 
-	 if (zoomLevel <1) {
-		 errorElement.style.display = 'block';
-	 } else {
-		 errorElement.style.display = 'none;
-	 }
-  }
-	window.addEventListner('load', checkZoom);
-	window.addEventListner('resize', checkZoom);
-</style>
   <style type="text/css">
   *
 {
@@ -330,6 +317,7 @@ font-family: Courier New;
 </body>
 		</div>
  </html>
+
 
 
 
