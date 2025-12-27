@@ -28,17 +28,17 @@
 (function () {
     const zoomError = document.getElementById('zoomError');
 
-    // Detect if device is mobile
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // Get zoom level as a percentage
+    // Cross-browser zoom detection
     function getZoomLevel() {
-        return Math.round(window.devicePixelRatio * 100);
+        // Compare window.innerWidth to screen.availWidth
+        const ratio = window.outerWidth / window.innerWidth;
+        return Math.round(ratio * 100);
     }
 
-    // Check zoom and show/hide error
     function checkZoom() {
         if (isMobile()) {
             zoomError.style.display = 'none';
@@ -47,7 +47,7 @@
 
         const zoomLevel = getZoomLevel();
 
-        // Allow ±5% tolerance to avoid false positives
+        // Allow ±5% tolerance
         if (Math.abs(zoomLevel - 100) > 5) {
             zoomError.style.display = 'block';
         } else {
@@ -55,7 +55,6 @@
         }
     }
 
-    // Run on load and resize
     window.addEventListener('load', checkZoom);
     window.addEventListener('resize', checkZoom);
 })();
@@ -357,6 +356,7 @@ font-family: Courier New;
 </body>
 		</div>
  </html>
+
 
 
 
