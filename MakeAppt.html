@@ -31,14 +31,14 @@
     function getZoomLevel() {
         // Compare the innerWidth to the screen's available width in CSS pixels
         const ratio = window.outerWidth / window.innerWidth;
-        return Math.round(ratio * 100);
+        return Math.round(ratio * 90);
     }
 
     function checkZoom() {
         const zoomLevel = getZoomLevel();
 
         // Show error if zoom is not exactly 100%
-        if (zoomLevel !== 100) {
+        if (zoomLevel !== 90) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -349,6 +349,7 @@ font-family: Courier New;
 </body>
 		</div>
  </html>
+
 
 
 
