@@ -117,20 +117,44 @@
 		border:2px solid transparent;
 				    gap:20px !important;
 			 }
-	.container1{ 
-  }
-		  .container{ 
-  position: relative !important;
-	 		width:100% !important;
-			  top: 60px !important;
-
-		  }
-		  .container img{
-	width:110% !important;
-	  top: 60px !important;
-
-  }
-	 }
+	 .whitecontainer{
+display: flex !important;
+		flex-direction: column  !important;  
+			}
+				.footer{
+					
+				width:125% !important;
+					position: relative  !important;
+					right:15%  !important;
+					background-color:#F5F5F0  !important;
+	height: auto;
+border-radius: 8px;
+box-shadow:0px 2px 4px rgba(0,0,0,0.2);
+margin:20px;
+			 }
+		   }
+	 .whitecontainer{
+	display:inline-block;
+justify-content: center;
+flex-wrap: wrap;
+margin-top: 100px;
+}
+	   .footer{
+width:200% ;
+		   height: auto;
+					position: relative  ;
+					right:5% ;
+justify content: center;
+		align-items: center;
+background-color:#F5F5F0;
+border-radius: 8px;
+overflow: hidden;
+box-shadow:0px 2px 4px rgba(0,0,0,0.2);
+margin:20px;
+}	
+	   .card-content {
+			padding:16px;
+		}
 	 nav{
 	position: center;
 	width: 103%;
@@ -400,9 +424,17 @@ nav a:nth-child(5):hover~span{
   max-width:103%;
 		border:2px solid transparent;
 		}
+	 .fullcontainer{	
+	 position: flex;
+  max-width:103%;
+		 padding:2rem;
+		border:2px solid transparent;
+	}
 </style>	
-	  <center> <div class="container"></center> 
-<center> <img src=" White.png" width="1325vw" height="200px"/></div></center> 
+	   <div clas="fullcontainer">
+			<div class="whitecontainer">
+<div class="footer">
+<div class=" card-content">
 <center><div class="text"> Our Services</div></center>
 		
 		 <div class= "container4">
@@ -431,8 +463,13 @@ nav a:nth-child(5):hover~span{
 			   </center>
 	
 </div>
+</div>
+</div>
+			 </div> 
+</div>
 </body>	
 </html>
+
 
 
 
