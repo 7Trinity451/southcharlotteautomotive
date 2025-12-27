@@ -28,30 +28,15 @@
 (function () {
     const zoomError = document.getElementById('zoomError');
 
-    // Detect mobile devices
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
     // Cross-browser zoom detection
     function getZoomLevel() {
-        try {
-            // Primary method: devicePixelRatio
-            if (window.devicePixelRatio) {
-                return Math.round(window.devicePixelRatio * 100);
-            }
-
-            // Fallback method: ratio of screen to inner width
-            if (window.innerWidth > 0) {
-                const ratio = screen.width / window.innerWidth;
-                return Math.round(ratio * 100);
-            }
-
-            return 100; // Default if detection fails
-        } catch (e) {
-            console.error("Zoom detection error:", e);
-            return 100;
-        }
+        // Compare window.innerWidth to screen.availWidth
+        const ratio = window.outerWidth / window.innerWidth;
+        return Math.round(ratio * 100);
     }
 
     function checkZoom() {
@@ -371,6 +356,7 @@ font-family: Courier New;
 </body>
 		</div>
  </html>
+
 
 
 
