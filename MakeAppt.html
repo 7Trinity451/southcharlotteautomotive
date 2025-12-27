@@ -25,30 +25,35 @@
     ❌ Please reset your browser zoom to 100% for the best experience.
 </div>
 	  <script>
-(function() {
+(function () {
     const zoomError = document.getElementById('zoomError');
 
+    function isMobile() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
     function getZoomLevel() {
-        // Compare the innerWidth to the screen's available width in CSS pixels
-        const ratio = window.outerWidth / window.innerWidth;
-        return Math.round(ratio * 90);
+        // devicePixelRatio is more reliable for zoom detection
+        return Math.round(window.devicePixelRatio * 100);
     }
 
     function checkZoom() {
-        const zoomLevel = getZoomLevel();
+        if (isMobile()) {
+            // Don't show zoom error on mobile devices
+            zoomError.style.display = 'none';
+            return;
+        }
 
-        // Show error if zoom is not exactly 100%
-        if (zoomLevel !== 90) {
+        const zoomLevel = getZoomLevel();
+        if (zoomLevel !== 100) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
         }
     }
 
-    // Initial check
-    checkZoom();
-
-    // Re-check on resize (zoom changes trigger resize)
+    // Run on load and resize
+    window.addEventListener('load', checkZoom);
     window.addEventListener('resize', checkZoom);
 })();
 </script>
@@ -349,6 +354,7 @@ font-family: Courier New;
 </body>
 		</div>
  </html>
+
 
 
 
