@@ -29,26 +29,30 @@
 (function () {
     const zoomError = document.getElementById('zoomError');
 
+    // Detect if device is mobile
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // More reliable zoom detection using devicePixelRatio
-    function getZoomLevel() {
-        // devicePixelRatio = physical pixels per CSS pixel
-        return Math.round(100 / window.devicePixelRatio);
+    // Store the baseline ratio at load (100% zoom for the device)
+    const BASE_RATIO = window.devicePixelRatio;
+
+    // Calculate zoom percentage
+    function getZoomPercent() {
+        return Math.round((window.devicePixelRatio / BASE_RATIO) * 100);
     }
 
+    // Check zoom level and show/hide error
     function checkZoom() {
         if (isMobile()) {
             zoomError.style.display = 'none';
             return;
         }
 
-        const zoomLevel = getZoomLevel();
+        const zoomLevel = getZoomPercent();
 
-        // Show error if zoom is 90% or below
-        if (zoomLevel <= 90) {
+        // Show error if zoom is below 100%
+        if (zoomLevel < 100) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -371,6 +375,7 @@ font-family: Courier New;
 </body>
 		</div>
  </html>
+
 
 
 
