@@ -34,11 +34,10 @@
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // More accurate zoom detection
+    // More reliable zoom detection using devicePixelRatio
     function getZoomLevel() {
-        // window.outerWidth is the physical pixel width of the browser window
-        // window.innerWidth is the CSS pixel width
-        return Math.round((window.outerWidth / window.innerWidth) * 100);
+        // devicePixelRatio = physical pixels per CSS pixel
+        return Math.round(100 / window.devicePixelRatio);
     }
 
     function checkZoom() {
@@ -339,6 +338,7 @@ nav a:nth-child(5):hover~span{
 </div>
 			 </div>
  </html>
+
 
 
 
