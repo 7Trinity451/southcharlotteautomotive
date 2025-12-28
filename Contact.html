@@ -34,10 +34,11 @@
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
+    // More accurate zoom detection
     function getZoomLevel() {
-        // Compare innerWidth to screen width to estimate zoom
-        const ratio = window.outerWidth / window.innerWidth;
-        return Math.round(ratio * 100);
+        // window.outerWidth is the physical pixel width of the browser window
+        // window.innerWidth is the CSS pixel width
+        return Math.round((window.outerWidth / window.innerWidth) * 100);
     }
 
     function checkZoom() {
@@ -338,6 +339,7 @@ nav a:nth-child(5):hover~span{
 </div>
 			 </div>
  </html>
+
 
 
 
