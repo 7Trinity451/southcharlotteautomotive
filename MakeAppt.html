@@ -34,31 +34,42 @@
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // Store the baseline ratio at load (100% zoom for the device)
-    const BASE_RATIO = window.devicePixelRatio;
-
-    // Calculate zoom percentage
+    // Calculate zoom percentage based on devicePixelRatio
     function getZoomPercent() {
-        return Math.round((window.devicePixelRatio / BASE_RATIO) * 100);
+        // window.devicePixelRatio is the standard for detecting browser zoom
+        return Math.round(window.devicePixelRatio * 100);
     }
 
     // Check zoom level and show/hide error
     function checkZoom() {
         if (isMobile()) {
-            zoomError.style.display = 'none';
+            if (zoomError) zoomError.style.display = 'none';
             return;
         }
 
         const zoomLevel = getZoomPercent();
 
-        // Show error if zoom is below 100%
+        // If zoom is below 100% (e.g., 80%), force scale it up
         if (zoomLevel < 100) {
-            zoomError.style.display = 'block';
+            if (zoomError) zoomError.style.display = 'block';
+            
+            // Calculate necessary scale factor to bring content back to "100%"
+            // If zoom is 80% (0.8), we need to scale up by 1/0.8 = 1.25
+            const scaleFactor = 1 / window.devicePixelRatio;
+            
+            // Apply scale to body
+            document.body.style.transform = `scale(${1/window.devicePixelRatio})`;
+            document.body.style.transformOrigin = '0 0'; // Scale from top-left
+            document.body.style.width = `${zoomLevel}%`; // Adjust width to prevent horizontal scroll
         } else {
-            zoomError.style.display = 'none';
+            if (zoomError) zoomError.style.display = 'none';
+            // Reset scaling if zoom is 100% or higher
+            document.body.style.transform = 'none';
+            document.body.style.width = 'auto';
         }
     }
 
+    // Run on load and resize
     window.addEventListener('load', checkZoom);
     window.addEventListener('resize', checkZoom);
 })();
@@ -375,6 +386,7 @@ font-family: Courier New;
 </body>
 		</div>
  </html>
+
 
 
 
