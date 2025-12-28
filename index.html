@@ -38,18 +38,18 @@
 			   <div id="zoomError">
     ❌ Please reset your browser zoom to 100% for the best experience.
 </div>
-	  <script>
+	<script>
 (function () {
     const zoomError = document.getElementById('zoomError');
 
+    // Detect if device is mobile
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
+    // Get zoom level using devicePixelRatio
     function getZoomLevel() {
-        // Compare innerWidth to screen width to estimate zoom
-        const ratio = window.outerWidth / window.innerWidth;
-        return Math.round(ratio * 100);
+        return Math.round(100 / window.devicePixelRatio);
     }
 
     function checkZoom() {
@@ -325,6 +325,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
