@@ -33,56 +33,37 @@
     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
 
-  function getZoomLevel() {
-    // visualViewport.scale is the most reliable
-    if (window.visualViewport) {
-      return Math.round(window.visualViewport.scale * 100);
-    }
-
-    // Fallback
-    return Math.round(window.devicePixelRatio * 100);
+  function getZoomPercent() {
+    // screen.width = physical pixels
+    // window.innerWidth = CSS pixels
+    return Math.round((window.outerWidth / window.innerWidth) * 100);
   }
 
   function checkZoom() {
     if (isMobile()) {
       zoomError.style.display = 'none';
-      unlockPage();
       return;
     }
 
-    const zoomLevel = getZoomLevel();
+    const zoom = getZoomPercent();
 
-    if (zoomLevel < 100) {
+    console.log('Zoom detected:', zoom); // DEBUG
+
+    if (zoom < 95) { // allow small tolerance
       zoomError.style.display = 'flex';
-      lockPage();
     } else {
       zoomError.style.display = 'none';
-      unlockPage();
     }
-  }
-
-  function lockPage() {
-    document.body.style.pointerEvents = 'none';
-    document.body.style.userSelect = 'none';
-  }
-
-  function unlockPage() {
-    document.body.style.pointerEvents = '';
-    document.body.style.userSelect = '';
   }
 
   // Run immediately
   checkZoom();
 
-  // Listen for zoom changes
+  // Catch zoom changes
   window.addEventListener('resize', checkZoom);
 
-  if (window.visualViewport) {
-    visualViewport.addEventListener('resize', checkZoom);
-  }
-
   // Polling catches pre-navigation zoom
-  setInterval(checkZoom, 300);
+  setInterval(checkZoom, 250);
 })();
 </script>
     <nav>
@@ -397,6 +378,7 @@ font-family: Courier New;
 </body>
 		</div>
  </html>
+
 
 
 
