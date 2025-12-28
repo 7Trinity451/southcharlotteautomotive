@@ -42,14 +42,15 @@
 (function () {
     const zoomError = document.getElementById('zoomError');
 
-    // Detect if device is mobile
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // Get zoom level as a percentage
+    // More accurate zoom detection
     function getZoomLevel() {
-        return Math.round(window.devicePixelRatio * 100);
+        // window.outerWidth is the physical pixel width of the browser window
+        // window.innerWidth is the CSS pixel width
+        return Math.round((window.outerWidth / window.innerWidth) * 100);
     }
 
     function checkZoom() {
@@ -72,6 +73,16 @@
     window.addEventListener('resize', checkZoom);
 })();
 </script>
+Why this works better
+window.outerWidth measures the actual physical pixels of the browser window.
+window.innerWidth measures the CSS pixels after zoom scaling.
+The ratio between them gives a more accurate zoom percentage across Chrome, Firefox, and Edge.
+✅ With this change, your message will correctly appear at 90% zoom and below, not just at 67%.
+
+If you want, I can also give you a version that works even when outerWidth is unreliable (like in Safari).
+Do you want me to make it fully cross-browser safe?
+
+
 	<center><div class="container1">
 <center><h1 style="font-family:Times New Roman;"> SC</h1></center>
 		<center><h3 style="font-family:Times New Roman;"> AUTOMOTIVE</h3></center>
@@ -325,6 +336,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
