@@ -46,10 +46,12 @@
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // More reliable zoom detection using devicePixelRatio
-    function getZoomLevel() {
-        // devicePixelRatio = physical pixels per CSS pixel
-        return Math.round(100 / window.devicePixelRatio);
+    // Store the baseline ratio at load (this is "100% zoom" for the device)
+    const BASE_RATIO = window.devicePixelRatio;
+
+    function getZoomPercent() {
+        // Compare current ratio to baseline
+        return Math.round((BASE_RATIO / window.devicePixelRatio) * 100);
     }
 
     function checkZoom() {
@@ -58,10 +60,10 @@
             return;
         }
 
-        const zoomLevel = getZoomLevel();
+        const zoomLevel = getZoomPercent();
 
-        // Show error if zoom is 90% or below
-        if (zoomLevel <= 90) {
+        // Show error if zoom is below 100%
+        if (zoomLevel < 100) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -327,6 +329,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
