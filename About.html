@@ -27,36 +27,43 @@
 </div>
 	  <script>
 (function () {
-    const zoomError = document.getElementById('zoomError');
+  const zoomError = document.getElementById('zoomError');
 
-    function isMobile() {
-        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+
+  function getZoomPercent() {
+    // screen.width = physical pixels
+    // window.innerWidth = CSS pixels
+    return Math.round((window.outerWidth / window.innerWidth) * 100);
+  }
+
+  function checkZoom() {
+    if (isMobile()) {
+      zoomError.style.display = 'none';
+      return;
     }
 
-    // Cross-browser zoom detection
-    function getZoomLevel() {
-        const ratio = window.outerWidth / window.innerWidth;
-        return Math.round(ratio * 100);
+    const zoom = getZoomPercent();
+
+    console.log('Zoom detected:', zoom); // DEBUG
+
+    if (zoom < 95) { // allow small tolerance
+      zoomError.style.display = 'flex';
+    } else {
+      zoomError.style.display = 'none';
     }
+  }
 
-    function checkZoom() {
-        if (isMobile()) {
-            zoomError.style.display = 'none';
-            return;
-        }
+  // Run immediately
+  checkZoom();
 
-        const zoomLevel = getZoomLevel();
+  // Catch zoom changes
+  window.addEventListener('resize', checkZoom);
 
-        // Allow ±5% tolerance, but only flag if zoom is BELOW 100%
-        if (zoomLevel < 95) {
-            zoomError.style.display = 'block';
-        } else {
-            zoomError.style.display = 'none';
-        }
-    }
-
-    window.addEventListener('load', checkZoom);
-    window.addEventListener('resize', checkZoom);
+  // Polling catches pre-navigation zoom
+  setInterval(checkZoom, 250);
 })();
 </script>
 	  <div class="navcontain">
@@ -551,6 +558,7 @@ nav a:nth-child(5):hover~span{
 </div>
 </body>	
 </html>
+
 
 
 
