@@ -35,7 +35,6 @@
 
     // Cross-browser zoom detection
     function getZoomLevel() {
-        // Compare window.innerWidth to screen.availWidth
         const ratio = window.outerWidth / window.innerWidth;
         return Math.round(ratio * 100);
     }
@@ -48,8 +47,8 @@
 
         const zoomLevel = getZoomLevel();
 
-        // Allow ±5% tolerance
-        if (Math.abs(zoomLevel - 100) > 5) {
+        // Allow ±5% tolerance, but only flag if zoom is BELOW 100%
+        if (zoomLevel < 95) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -404,6 +403,7 @@ nav a:nth-child(5):hover~span{
 		
 </body>
  </html>
+
 
 
 
