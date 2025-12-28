@@ -40,40 +40,43 @@
 </div>
 	<script>
 (function () {
-    const zoomError = document.getElementById('zoomError');
+  const zoomError = document.getElementById('zoomError');
 
-    // Detect if device is mobile
-    function isMobile() {
-        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+
+  function getZoomPercent() {
+    // screen.width = physical pixels
+    // window.innerWidth = CSS pixels
+    return Math.round((window.outerWidth / window.innerWidth) * 100);
+  }
+
+  function checkZoom() {
+    if (isMobile()) {
+      zoomError.style.display = 'none';
+      return;
     }
 
-    // Store the baseline ratio at load (100% zoom for the device)
-    const BASE_RATIO = window.devicePixelRatio;
+    const zoom = getZoomPercent();
 
-    // Calculate zoom percentage
-    function getZoomPercent() {
-        return Math.round((window.devicePixelRatio / BASE_RATIO) * 100);
+    console.log('Zoom detected:', zoom); // DEBUG
+
+    if (zoom < 95) { // allow small tolerance
+      zoomError.style.display = 'flex';
+    } else {
+      zoomError.style.display = 'none';
     }
+  }
 
-    // Check zoom level and show/hide error
-    function checkZoom() {
-        if (isMobile()) {
-            zoomError.style.display = 'none';
-            return;
-        }
+  // Run immediately
+  checkZoom();
 
-        const zoomLevel = getZoomPercent();
+  // Catch zoom changes
+  window.addEventListener('resize', checkZoom);
 
-        // Show error if zoom is below 100%
-        if (zoomLevel < 100) {
-            zoomError.style.display = 'block';
-        } else {
-            zoomError.style.display = 'none';
-        }
-    }
-
-    window.addEventListener('load', checkZoom);
-    window.addEventListener('resize', checkZoom);
+  // Polling catches pre-navigation zoom
+  setInterval(checkZoom, 250);
 })();
 </script>
 
@@ -331,6 +334,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
