@@ -42,18 +42,20 @@
 (function () {
     const zoomError = document.getElementById('zoomError');
 
+    // Detect if device is mobile
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // Store the baseline ratio at load (this is "100% zoom" for the device)
+    // Store the baseline ratio at load (100% zoom for the device)
     const BASE_RATIO = window.devicePixelRatio;
 
+    // Calculate zoom percentage
     function getZoomPercent() {
-        // Compare current ratio to baseline
-        return Math.round((BASE_RATIO / window.devicePixelRatio) * 100);
+        return Math.round((window.devicePixelRatio / BASE_RATIO) * 100);
     }
 
+    // Check zoom level and show/hide error
     function checkZoom() {
         if (isMobile()) {
             zoomError.style.display = 'none';
@@ -329,6 +331,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
