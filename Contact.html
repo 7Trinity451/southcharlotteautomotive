@@ -30,14 +30,15 @@
 (function () {
     const zoomError = document.getElementById('zoomError');
 
+    // Detect mobile devices
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // Cross-browser zoom detection
+    // Cross-browser zoom detection using devicePixelRatio
     function getZoomLevel() {
-        const ratio = window.outerWidth / window.innerWidth;
-        return Math.round(ratio * 100);
+        // devicePixelRatio changes with zoom
+        return Math.round((window.devicePixelRatio || 1) * 100);
     }
 
     function checkZoom() {
@@ -48,8 +49,8 @@
 
         const zoomLevel = getZoomLevel();
 
-        // Allow ±5% tolerance, but only flag if zoom is BELOW 100%
-        if (zoomLevel < 105) {
+        // Allow ±5% tolerance, only flag if zoom is BELOW 100%
+        if (zoomLevel < 95) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -338,6 +339,7 @@ nav a:nth-child(5):hover~span{
 </div>
 			 </div>
  </html>
+
 
 
 
