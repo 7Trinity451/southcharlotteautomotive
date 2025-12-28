@@ -49,8 +49,8 @@
 
         const zoomLevel = getZoomLevel();
 
-        // Allow ±5% tolerance, only flag if zoom is BELOW 100%
-        if (zoomLevel < 95) {
+        // Show error if zoom is 90% or below
+        if (zoomLevel <= 90) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -339,6 +339,7 @@ nav a:nth-child(5):hover~span{
 </div>
 			 </div>
  </html>
+
 
 
 
