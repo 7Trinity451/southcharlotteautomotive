@@ -47,9 +47,9 @@
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // Get zoom level using devicePixelRatio
+    // Get zoom level as a percentage
     function getZoomLevel() {
-        return Math.round(100 / window.devicePixelRatio);
+        return Math.round(window.devicePixelRatio * 100);
     }
 
     function checkZoom() {
@@ -325,6 +325,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
