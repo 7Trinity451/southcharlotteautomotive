@@ -33,8 +33,8 @@
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // Cross-browser zoom detection
     function getZoomLevel() {
+        // Compare innerWidth to screen width to estimate zoom
         const ratio = window.outerWidth / window.innerWidth;
         return Math.round(ratio * 100);
     }
@@ -47,8 +47,8 @@
 
         const zoomLevel = getZoomLevel();
 
-        // Allow ±5% tolerance, but only flag if zoom is BELOW 100%
-        if (zoomLevel < 95) {
+        // Show error if zoom is 90% or below
+        if (zoomLevel <= 90) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -295,6 +295,7 @@ h1{
 		
 </body>
  </html>
+
 
 
 
