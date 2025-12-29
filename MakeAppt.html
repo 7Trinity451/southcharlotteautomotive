@@ -27,44 +27,41 @@
 </div>
 	  <script>
 (function () {
-  const zoomError = document.getElementById('zoomError');
+    const zoomError = document.getElementById('zoomError');
 
-  function isMobile() {
-    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  }
-
-  function getZoomPercent() {
-    // screen.width = physical pixels
-    // window.innerWidth = CSS pixels
-    return Math.round((window.outerWidth / window.innerWidth) * 100);
-  }
-
-  function checkZoom() {
-    if (isMobile()) {
-      zoomError.style.display = 'none';
-      return;
+    // Detect if device is mobile
+    function isMobile() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    const zoom = getZoomPercent();
+    // Store the baseline ratio at load (100% zoom for the device)
+    const BASE_RATIO = window.devicePixelRatio;
 
-    console.log('Zoom detected:', zoom); // DEBUG
-
-    if (zoom < 95) { // allow small tolerance
-      zoomError.style.display = 'flex';
-    } else {
-      zoomError.style.display = 'none';
+    // Calculate zoom percentage
+    function getZoomPercent() {
+        return Math.round((window.devicePixelRatio / BASE_RATIO) * 100);
     }
-  }
 
-  // Run immediately
-  checkZoom();
+    // Check zoom level and show/hide error
+    function checkZoom() {
+        if (isMobile()) {
+            zoomError.style.display = 'none';
+            return;
+        }
 
-  // Catch zoom changes
-  window.addEventListener('resize', checkZoom);
+        const zoomLevel = getZoomPercent();
 
-  // Polling catches pre-navigation zoom
-  setInterval(checkZoom, 250);
-})();
+        // Show error if zoom is below 100%
+        if (zoomLevel < 100) {
+            zoomError.style.display = 'block';
+        } else {
+            zoomError.style.display = 'none';
+        }
+    }
+
+    window.addEventListener('load', checkZoom);
+    window.addEventListener('resize', checkZoom);
+})();		
 </script>
     <nav>
 		<img src="MainPicture.png" style="width:42px;height:42px;"></a>
@@ -378,6 +375,7 @@ font-family: Courier New;
 </body>
 		</div>
  </html>
+
 
 
 
