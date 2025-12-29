@@ -46,16 +46,23 @@
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
+    // Capture the baseline DPR when the page loads
+    const BASE_DPR = window.devicePixelRatio;
+
+    function getZoomPercent() {
+        return (window.devicePixelRatio / BASE_DPR) * 100;
+    }
+
     function checkZoom() {
         if (isMobile()) {
             zoomError.style.display = 'none';
             return;
         }
 
-        const dpr = window.devicePixelRatio || 1;
+        const zoomPercent = getZoomPercent();
 
-        // Show error ONLY if zoom is below 100%
-        if (dpr < 1) {
+        // Show error ONLY if zoom is 90% or lower
+        if (zoomPercent <= 90) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -66,7 +73,6 @@
     window.addEventListener('resize', checkZoom);
 })();
 </script>
-
 
 
 
@@ -374,6 +380,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
