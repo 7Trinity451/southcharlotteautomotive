@@ -74,9 +74,8 @@
 </script>
 
 
-<header class="layout-wrapper">
-  <nav class="navbar">
-
+<nav class="navbar">
+  <div class="nav-inner">
 <img src="MainPicture.png" style="width:42px;height:42px;"></a>
 				<a href= "http://7trinity451.github.io/southcharlotteautomotive/index.html">Home</a>
 		<a href=   "http://7trinity451.github.io/southcharlotteautomotive/Services1.html">Services</a>
@@ -85,7 +84,8 @@
 <a href=  "http://7trinity451.github.io/southcharlotteautomotive/MakeAppt.html">Book Now!</a>
 		<a href=  "http://7trinity451.github.io/southcharlotteautomotive/Resources.html">Q&A</a>
 
-	</nav>
+</div>
+</nav>
 </header>
 	  
 	  
@@ -142,6 +142,13 @@
 
 .footer {
   width: 100%;
+  background: transparent;
+  margin: 20px 0;
+}
+
+.footer-inner {
+  max-width: 1500px; /* ⬅️ controls width */
+  margin: 0 auto;
   padding: 24px;
 
   background-color: #F5F5F0;
@@ -156,21 +163,19 @@
   box-sizing: border-box;
 }
 
+
 .pricingmiddle
 		{
 			position: relative;
 			top: 40px;
 		}
 @media (max-width: 820px) {
-  .layout-wrapper {
-    padding: 0 16px;
-  }
-
-  .footer {
-    padding: 10px;
+  .nav-inner,
+  .footer-inner {
+    max-width: 100%;
+    padding: 16px;
   }
 }
-
 		.whitecontainer{
 	display:inline-block;
 justify-content: center;
@@ -181,6 +186,17 @@ margin-top: 100px;
 	   .card-content {
 			padding:16px;
 		}
+	.navbar {
+  width: 100%;
+  background: #fff; /* your navbar color */
+}
+
+.nav-inner {
+  max-width: 1500px; /* SAME as footer */
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
   nav{
 	position: center;
 	width: 103%;
@@ -295,9 +311,8 @@ h1{
 		border:2px solid transparent;
 	}
 </style>
-	  <footer class="layout-wrapper">
-  <div class="footer">
-    
+	  <footer class="footer">
+  <div class="footer-inner">
 <div clas="fullcontainer">
 			<div class="whitecontainer">
 <div class=" card-content">
@@ -317,6 +332,7 @@ h1{
 		
 </body>
  </html>
+
 
 
 
