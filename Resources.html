@@ -31,37 +31,35 @@
 <a href=  "http://7trinity451.github.io/southcharlotteautomotive/MakeAppt.html">Q&A</a>
 	</nav>
 	<body>
-		  <div id="zoomError">
-    ❌ Please reset your browser zoom to 100% for the best experience.
+<div id="zoomError" style="display:none; color:red; font-weight:bold;">
+    Zoom too low! Please set your browser zoom to it's default(this will most likely be 100% zoom).
 </div>
-	  <script>
-(function () {
+
+<script>
+(function() {
     const zoomError = document.getElementById('zoomError');
 
-    // Detect if device is mobile
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // Store the baseline ratio at load (100% zoom for the device)
-    const BASE_RATIO = window.devicePixelRatio;
+    // Capture a baseline DPR on page load
+    const BASE_DPR = window.devicePixelRatio || 1;
 
-    // Calculate zoom percentage
     function getZoomPercent() {
-        return Math.round((window.devicePixelRatio / BASE_RATIO) * 100);
+        return (window.devicePixelRatio / BASE_DPR) * 100;
     }
 
-    // Check zoom level and show/hide error
     function checkZoom() {
         if (isMobile()) {
             zoomError.style.display = 'none';
             return;
         }
 
-        const zoomLevel = getZoomPercent();
+        const zoomPercent = getZoomPercent();
 
-        // Show error if zoom is below 100%
-        if (zoomLevel < 100) {
+        // Show error if zoom is 90% or lower
+        if (zoomPercent <= 90) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -70,8 +68,9 @@
 
     window.addEventListener('load', checkZoom);
     window.addEventListener('resize', checkZoom);
-})();		
+})();
 </script>
+
 		<div class="allcontainers">
 			<center>
 <div class="card-container">
@@ -577,6 +576,7 @@ margin:20px;
 			 </div> 
 	     </body>
    </html>
+
 
 
 
