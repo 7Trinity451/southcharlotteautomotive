@@ -412,13 +412,19 @@ nav a:nth-child(5):hover~span{
 			 </div> 
 		 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  if (navigator.userAgent.toLowerCase().includes('firefox')) {
-    document.getElementById('zoomError').style.display = 'flex';
+  const zoomError = document.getElementById('zoomError');
+  if (!zoomError) return;
+
+  const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+
+  if (isFirefox) {
+    zoomError.style.setProperty('display', 'flex', 'important');
   }
 });
  </script>
 </body>
  </html>
+
 
 
 
