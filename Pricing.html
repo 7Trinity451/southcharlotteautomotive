@@ -22,9 +22,7 @@
  <meta name="viewport" content="width=device-width,initial-scale=0.57, target-densitydpi=device-dpi, user-scalable=no, maximum-scale:0.57"/>
  </head>
   <body>
-	    <div id="zoomError">
-    ❌ Please reset your browser zoom to 100% for the best experience.
-</div>
+	   
 	<style>
 #zoomChecker {
     position: absolute;
@@ -35,24 +33,23 @@
 }
 </style>
 
-<div id="zoomChecker"></div>
-<div id="zoomError" style="display:none">
-  <strong>Zoom too low!</strong> Please set your browser zoom to 100%.
+<div id="zoomError" style="display:none; color:red; font-weight:bold;">
+    Zoom too low! Please set your browser zoom to 100%.
 </div>
 
 <script>
-(function () {
+(function() {
     const zoomError = document.getElementById('zoomError');
-    const checker = document.getElementById('zoomChecker');
 
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
+    // Capture a baseline DPR on page load
+    const BASE_DPR = window.devicePixelRatio || 1;
+
     function getZoomPercent() {
-        // 1 inch in CSS should be 96px at 100% zoom
-        const pxPerInch = checker.offsetWidth;
-        return Math.round((pxPerInch / 96) * 100);
+        return (window.devicePixelRatio / BASE_DPR) * 100;
     }
 
     function checkZoom() {
@@ -63,7 +60,7 @@
 
         const zoomPercent = getZoomPercent();
 
-        // Show error if zoom <= 90%
+        // Show error if zoom is 90% or lower
         if (zoomPercent <= 90) {
             zoomError.style.display = 'block';
         } else {
@@ -75,6 +72,7 @@
     window.addEventListener('resize', checkZoom);
 })();
 </script>
+
 
 <nav>
 <img src="MainPicture.png" style="width:42px;height:42px;"></a>
@@ -313,6 +311,7 @@ h1{
 		
 </body>
  </html>
+
 
 
 
