@@ -25,34 +25,46 @@
 	    <div id="zoomError">
     ❌ Please reset your browser zoom to 100% for the best experience.
 </div>
-	  <script>
+	<style>
+#zoomChecker {
+    position: absolute;
+    left: -1000px; /* hide offscreen */
+    top: -1000px;
+    width: 1in; /* 1 inch in CSS */
+    height: 1in;
+}
+</style>
+
+<div id="zoomChecker"></div>
+<div id="zoomError" style="display:none">
+  <strong>Zoom too low!</strong> Please set your browser zoom to 100%.
+</div>
+
+<script>
 (function () {
     const zoomError = document.getElementById('zoomError');
+    const checker = document.getElementById('zoomChecker');
 
-    // Detect if device is mobile
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // Store the baseline ratio at load (100% zoom for the device)
-    const BASE_RATIO = window.devicePixelRatio;
-
-    // Calculate zoom percentage
     function getZoomPercent() {
-        return Math.round((window.devicePixelRatio / BASE_RATIO) * 100);
+        // 1 inch in CSS should be 96px at 100% zoom
+        const pxPerInch = checker.offsetWidth;
+        return Math.round((pxPerInch / 96) * 100);
     }
 
-    // Check zoom level and show/hide error
     function checkZoom() {
         if (isMobile()) {
             zoomError.style.display = 'none';
             return;
         }
 
-        const zoomLevel = getZoomPercent();
+        const zoomPercent = getZoomPercent();
 
-        // Show error if zoom is below 100%
-        if (zoomLevel < 100) {
+        // Show error if zoom <= 90%
+        if (zoomPercent <= 90) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -61,8 +73,9 @@
 
     window.addEventListener('load', checkZoom);
     window.addEventListener('resize', checkZoom);
-})();		
+})();
 </script>
+
 <nav>
 <img src="MainPicture.png" style="width:42px;height:42px;"></a>
 				<a href= "http://7trinity451.github.io/southcharlotteautomotive/index.html">Home</a>
@@ -300,6 +313,7 @@ h1{
 		
 </body>
  </html>
+
 
 
 
