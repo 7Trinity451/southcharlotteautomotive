@@ -75,7 +75,27 @@
     window.addEventListener('resize', checkZoom);
 })();				
 </script>
+<script>
+	function getZoomLevel() {
+  return Math.round((window.outerWidth / window.innerWidth) * 100);
+}
 
+function checkZoom() {
+  if (isMobile()) {
+    zoomError.style.display = 'none';
+    return;
+  }
+
+  const zoom = getZoomLevel();
+
+  if (zoom < 100) {
+    zoomError.style.display = 'block';
+  } else {
+    zoomError.style.display = 'none';
+  }
+}
+
+</script>
 
 	<center><div class="container1">
 <center><h1 style="font-family:Times New Roman;"> SC</h1></center>
@@ -378,6 +398,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
