@@ -96,6 +96,29 @@ function checkZoom() {
 }
 
 </script>
+			 <script>
+			 const BASE_RATIO = window.devicePixelRatio;
+
+function getZoomRatio() {
+  return window.devicePixelRatio / BASE_RATIO;
+}
+
+function checkZoom() {
+  if (isMobile()) {
+    zoomError.style.display = 'none';
+    return;
+  }
+
+  const zoomRatio = getZoomRatio();
+
+  // Allow small variations (Windows scaling causes this)
+  if (zoomRatio < 0.98) {
+    zoomError.style.display = 'block';
+  } else {
+    zoomError.style.display = 'none';
+  }
+}
+  </script>
 
 	<center><div class="container1">
 <center><h1 style="font-family:Times New Roman;"> SC</h1></center>
@@ -398,6 +421,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
