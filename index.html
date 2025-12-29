@@ -37,20 +37,22 @@
 			   <div id="zoomError">
     ❌ Please reset your browser zoom to 100% for the best experience.
 </div>
-	<script>
+<script>
 (function () {
   const zoomError = document.getElementById('zoomError');
+  if (!zoomError) return;
 
   function isMobile() {
     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
 
   function getZoomRatio() {
+    // This IS the only reliable desktop zoom signal
     return window.outerWidth / window.innerWidth;
   }
 
-  // Capture the user's NORMAL (100%) zoom at load
-  const baseZoomRatio = getZoomRatio();
+  // Establish baseline (treated as 100%)
+  let baseZoomRatio = getZoomRatio();
 
   function checkZoom() {
     if (isMobile()) {
@@ -60,23 +62,19 @@
 
     const currentZoomRatio = getZoomRatio();
 
-    // Convert to percentage relative to baseline
-    const zoomPercent = Math.round((currentZoomRatio / baseZoomRatio) * 100);
-
-    // Warn if user zooms BELOW 100%
-    if (zoomPercent < 100) {
+    // If zoom ratio decreases, user zoomed OUT
+    if (currentZoomRatio < baseZoomRatio - 0.01) {
       zoomError.style.display = 'block';
     } else {
       zoomError.style.display = 'none';
     }
   }
 
-  window.addEventListener('load', checkZoom);
   window.addEventListener('resize', checkZoom);
+  window.addEventListener('load', checkZoom);
 })();
-
-
 </script>
+
 
 
 
@@ -382,6 +380,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
