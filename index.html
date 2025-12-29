@@ -38,87 +38,40 @@
     ❌ Please reset your browser zoom to 100% for the best experience.
 </div>
 	<script>
-(function () {
-    const zoomError = document.getElementById('zoomError');
-
-    // Detect if device is mobile
-    function isMobile() {
-        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    }
-
-    // Store the baseline ratio at load (100% zoom for the device)
-    const BASE_RATIO = window.devicePixelRatio;
-
-    // Calculate zoom percentage
-    function getZoomPercent() {
-        return Math.round((window.devicePixelRatio / BASE_RATIO) * 100);
-    }
-
-    // Check zoom level and show/hide error
-    function checkZoom() {
-        if (isMobile()) {
-            zoomError.style.display = 'none';
-            return;
-        }
-
-        const zoomLevel = getZoomPercent();
-
-        // Show error if zoom is below 100%
-        if (zoomLevel < 100) {
-            zoomError.style.display = 'block';
-        } else {
-            zoomError.style.display = 'none';
-        }
-    }
-
-    window.addEventListener('load', checkZoom);
-    window.addEventListener('resize', checkZoom);
-})();				
-</script>
 <script>
-	function getZoomLevel() {
-  return Math.round((window.outerWidth / window.innerWidth) * 100);
-}
+(function () {
+  const zoomError = document.getElementById('zoomError');
 
-function checkZoom() {
-  if (isMobile()) {
-    zoomError.style.display = 'none';
-    return;
+  function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
 
-  const zoom = getZoomLevel();
-
-  if (zoom < 100) {
-    zoomError.style.display = 'block';
-  } else {
-    zoomError.style.display = 'none';
+  function getBrowserZoom() {
+    // Works on Chrome, Edge, Firefox on Windows
+    return Math.round((window.outerWidth / window.innerWidth) * 100);
   }
-}
 
+  function checkZoom() {
+    if (isMobile()) {
+      zoomError.style.display = 'none';
+      return;
+    }
+
+    const zoom = getBrowserZoom();
+
+    // Allow tolerance because some browsers report 99–101 at 100%
+    if (zoom < 95) {
+      zoomError.style.display = 'block';
+    } else {
+      zoomError.style.display = 'none';
+    }
+  }
+
+  window.addEventListener('load', checkZoom);
+  window.addEventListener('resize', checkZoom);
+})();
 </script>
-			 <script>
-			 const BASE_RATIO = window.devicePixelRatio;
 
-function getZoomRatio() {
-  return window.devicePixelRatio / BASE_RATIO;
-}
-
-function checkZoom() {
-  if (isMobile()) {
-    zoomError.style.display = 'none';
-    return;
-  }
-
-  const zoomRatio = getZoomRatio();
-
-  // Allow small variations (Windows scaling causes this)
-  if (zoomRatio < 0.98) {
-    zoomError.style.display = 'block';
-  } else {
-    zoomError.style.display = 'none';
-  }
-}
-  </script>
 
 	<center><div class="container1">
 <center><h1 style="font-family:Times New Roman;"> SC</h1></center>
@@ -421,6 +374,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
