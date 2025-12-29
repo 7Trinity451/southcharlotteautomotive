@@ -34,21 +34,23 @@
 
 	</nav>
 		 <body>
-			
-			   <div id="zoomError">
-    ❌ Please reset your browser zoom to 100% for the best experience.
+<div id="zoomError" style="display:none; color:red; font-weight:bold;">
+    Zoom too low! Please set your browser zoom to it's default(this will most likely be 100% zoom).
 </div>
+
 <script>
-(function () {
+(function() {
     const zoomError = document.getElementById('zoomError');
 
     function isMobile() {
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
+    // Capture a baseline DPR on page load
+    const BASE_DPR = window.devicePixelRatio || 1;
+
     function getZoomPercent() {
-        // OuterWidth / InnerWidth gives zoom relative to 100%
-        return Math.round((window.outerWidth / window.innerWidth) * 100);
+        return (window.devicePixelRatio / BASE_DPR) * 100;
     }
 
     function checkZoom() {
@@ -59,7 +61,7 @@
 
         const zoomPercent = getZoomPercent();
 
-        // Show error only if zoom <= 90%
+        // Show error if zoom is 90% or lower
         if (zoomPercent <= 90) {
             zoomError.style.display = 'block';
         } else {
@@ -71,7 +73,6 @@
     window.addEventListener('resize', checkZoom);
 })();
 </script>
-
 
 
 
@@ -378,6 +379,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
