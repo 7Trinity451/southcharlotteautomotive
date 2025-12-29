@@ -46,11 +46,9 @@
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // Capture the baseline DPR when the page loads
-    const BASE_DPR = window.devicePixelRatio;
-
     function getZoomPercent() {
-        return (window.devicePixelRatio / BASE_DPR) * 100;
+        // OuterWidth / InnerWidth gives zoom relative to 100%
+        return Math.round((window.outerWidth / window.innerWidth) * 100);
     }
 
     function checkZoom() {
@@ -61,7 +59,7 @@
 
         const zoomPercent = getZoomPercent();
 
-        // Show error ONLY if zoom is 90% or lower
+        // Show error only if zoom <= 90%
         if (zoomPercent <= 90) {
             zoomError.style.display = 'block';
         } else {
@@ -380,6 +378,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
