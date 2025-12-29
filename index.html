@@ -45,9 +45,9 @@
         return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    // 100% zoom is approximately devicePixelRatio === screen.logical DPI / 96
+    // 96 DPI is the CSS standard for 100% zoom
     function getZoomPercent() {
-        return Math.round((window.outerWidth / window.innerWidth) * 100);
+        return Math.round((window.devicePixelRatio * 96) / screen.deviceXDPI * 100);
     }
 
     function checkZoom() {
@@ -58,7 +58,8 @@
 
         const zoomLevel = getZoomPercent();
 
-        if (zoomLevel !== 100) {
+        // ONLY show error if zoom is below 100%
+        if (zoomLevel < 100) {
             zoomError.style.display = 'block';
         } else {
             zoomError.style.display = 'none';
@@ -69,7 +70,6 @@
     window.addEventListener('resize', checkZoom);
 })();
 </script>
-
 
 
 
@@ -377,6 +377,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
