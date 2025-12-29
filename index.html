@@ -39,6 +39,7 @@
 </div>
 	<script>
 <script>
+
 (function () {
   const zoomError = document.getElementById('zoomError');
 
@@ -46,9 +47,15 @@
     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
 
-  function getBrowserZoom() {
-    // devicePixelRatio is more reliable for detecting zoom changes
-    return Math.round(window.devicePixelRatio * 100);
+  // Capture baseline zoom at load (represents 100%)
+  const baseZoom = getZoomLevel();
+
+  function getZoomLevel() {
+    if (window.visualViewport && window.visualViewport.scale) {
+      return window.visualViewport.scale;
+    }
+    // Fallback for older browsers
+    return window.devicePixelRatio || 1;
   }
 
   function checkZoom() {
@@ -57,10 +64,11 @@
       return;
     }
 
-    const zoom = getBrowserZoom();
+    const currentZoom = getZoomLevel();
+    const zoomPercent = Math.round((currentZoom / baseZoom) * 100);
 
-    // Show warning for ANY zoom below 100%
-    if (zoom < 100) {
+    // Warn if zoom is BELOW 100%
+    if (zoomPercent < 100) {
       zoomError.style.display = 'block';
     } else {
       zoomError.style.display = 'none';
@@ -69,7 +77,13 @@
 
   window.addEventListener('load', checkZoom);
   window.addEventListener('resize', checkZoom);
+
+  // visualViewport fires zoom events directly
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', checkZoom);
+  }
 })();
+
 </script>
 
 
@@ -376,6 +390,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
