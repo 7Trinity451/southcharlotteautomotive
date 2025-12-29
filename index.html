@@ -47,8 +47,8 @@
   }
 
   function getBrowserZoom() {
-    // Works on Chrome, Edge, Firefox on Windows
-    return Math.round((window.outerWidth / window.innerWidth) * 100);
+    // devicePixelRatio is more reliable for detecting zoom changes
+    return Math.round(window.devicePixelRatio * 100);
   }
 
   function checkZoom() {
@@ -59,8 +59,8 @@
 
     const zoom = getBrowserZoom();
 
-    // Allow tolerance because some browsers report 99–101 at 100%
-    if (zoom < 95) {
+    // Show warning for ANY zoom below 100%
+    if (zoom < 100) {
       zoomError.style.display = 'block';
     } else {
       zoomError.style.display = 'none';
@@ -71,6 +71,7 @@
   window.addEventListener('resize', checkZoom);
 })();
 </script>
+
 
 
 
@@ -375,6 +376,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
