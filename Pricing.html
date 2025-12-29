@@ -151,16 +151,23 @@ footer.footer {
   margin: 20px 0;
 }
 .footer-inner {
+
   max-width: 1500px;
   margin: 0 auto;
-  line-height: 1.2;
-padding: 6px 24px 10px; /* ⬅️ compact height */
+
+  padding: 12px 24px;   /* even padding */
+  min-height: 48px;     /* controls box height */
+
+  display: grid;
+  place-items: center;  /* ⬅️ PERFECT vertical + horizontal centering */
+
   background-color: #F5F5F0;
   border-radius: 8px;
   box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
 
-  text-align: center;
   box-sizing: border-box;
+
+
 }
 
 
@@ -332,6 +339,7 @@ h1{
 		
 </body>
  </html>
+
 
 
 
