@@ -39,41 +39,43 @@
 </div>
 <script>
 (function () {
-  const zoomError = document.getElementById('zoomError');
-  if (!zoomError) return;
+    const zoomError = document.getElementById('zoomError');
 
-  function isMobile() {
-    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  }
-
-  function getZoomRatio() {
-    // This IS the only reliable desktop zoom signal
-    return window.outerWidth / window.innerWidth;
-  }
-
-  // Establish baseline (treated as 100%)
-  let baseZoomRatio = getZoomRatio();
-
-  function checkZoom() {
-    if (isMobile()) {
-      zoomError.style.display = 'none';
-      return;
+    // Detect if device is mobile
+    function isMobile() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
 
-    const currentZoomRatio = getZoomRatio();
+    // Store the baseline ratio at load (100% zoom for the device)
+    const BASE_RATIO = window.devicePixelRatio;
 
-    // If zoom ratio decreases, user zoomed OUT
-    if (currentZoomRatio < baseZoomRatio - 0.01) {
-      zoomError.style.display = 'block';
-    } else {
-      zoomError.style.display = 'none';
+    // Calculate zoom percentage
+    function getZoomPercent() {
+        return Math.round((window.devicePixelRatio / BASE_RATIO) * 100);
     }
-  }
 
-  window.addEventListener('resize', checkZoom);
-  window.addEventListener('load', checkZoom);
+    // Check zoom level and show/hide error
+    function checkZoom() {
+        if (isMobile()) {
+            zoomError.style.display = 'none';
+            return;
+        }
+
+        const zoomLevel = getZoomPercent();
+
+        // Show error if zoom is below 100%
+        if (zoomLevel < 100) {
+            zoomError.style.display = 'block';
+        } else {
+            zoomError.style.display = 'none';
+        }
+    }
+
+    window.addEventListener('load', checkZoom);
+    window.addEventListener('resize', checkZoom);
 })();
 </script>
+
 
 
 
@@ -380,6 +382,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
