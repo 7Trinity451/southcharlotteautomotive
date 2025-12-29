@@ -47,16 +47,12 @@
     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
 
-  // Capture baseline zoom at load (represents 100%)
-  const baseZoom = getZoomLevel();
-
-  function getZoomLevel() {
-    if (window.visualViewport && window.visualViewport.scale) {
-      return window.visualViewport.scale;
-    }
-    // Fallback for older browsers
-    return window.devicePixelRatio || 1;
+  function getZoomRatio() {
+    return window.outerWidth / window.innerWidth;
   }
+
+  // Capture the user's NORMAL (100%) zoom at load
+  const baseZoomRatio = getZoomRatio();
 
   function checkZoom() {
     if (isMobile()) {
@@ -64,10 +60,12 @@
       return;
     }
 
-    const currentZoom = getZoomLevel();
-    const zoomPercent = Math.round((currentZoom / baseZoom) * 100);
+    const currentZoomRatio = getZoomRatio();
 
-    // Warn if zoom is BELOW 100%
+    // Convert to percentage relative to baseline
+    const zoomPercent = Math.round((currentZoomRatio / baseZoomRatio) * 100);
+
+    // Warn if user zooms BELOW 100%
     if (zoomPercent < 100) {
       zoomError.style.display = 'block';
     } else {
@@ -77,12 +75,8 @@
 
   window.addEventListener('load', checkZoom);
   window.addEventListener('resize', checkZoom);
-
-  // visualViewport fires zoom events directly
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', checkZoom);
-  }
 })();
+
 
 </script>
 
@@ -390,6 +384,7 @@ position:center;
 			 <span></span>
 	     </body>
    </html>
+
 
 
 
