@@ -162,13 +162,16 @@ footer.footer {
     align-items: center;     /* horizontally center content */
 
     background-color: #F5F5F0;
-    border-radius: 0;        /* remove rounding if you want full width */
+    border-radius: 8px;       
     box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
 
     box-sizing: border-box;
     text-align: center;
 }
-
+.footer-inner .card-content {
+    position: relative;
+    top: -50px;  /* moves all footer content up */
+}
 
 @media (max-width: 820px) {
   .nav-inner,
@@ -333,6 +336,7 @@ h1{
 		
 </body>
  </html>
+
 
 
 
