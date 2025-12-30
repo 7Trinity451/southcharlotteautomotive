@@ -2,23 +2,7 @@
 	<html>
   <head>
 	  <link rel="icon" href="MainPicture.png" type="image/x-icon">
-	  	<style>
-    /* Error overlay */
-    #zoomError {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: black;
-        color: white;
-        font-size: 1.5rem;
-        text-align: center;
-        padding-top: 20%;
-        z-index: 9999;
-    }
-</style>
+
 	  <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi, initial-scale=0.5,user-scalable=yes," maximum-scale:0.5 to 0.9"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
  </head>
@@ -36,51 +20,7 @@
 
 	</div>
 </nav>
-		
-<div id="zoomError" style="display:none; color:red; font-weight:bold;">
-    Zoom too low! Please set your browser zoom to it's default(this will most likely be 100% zoom).
-</div>
-
-<script>
-(function() {
-    const zoomError = document.getElementById('zoomError');
-
-    function isMobile() {
-        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    }
-
-    // Capture a baseline DPR on page load
-    const BASE_DPR = window.devicePixelRatio || 1;
-
-    function getZoomPercent() {
-        return (window.devicePixelRatio / BASE_DPR) * 100;
-    }
-
-    function checkZoom() {
-        if (isMobile()) {
-            zoomError.style.display = 'none';
-            return;
-        }
-
-        const zoomPercent = getZoomPercent();
-
-        // Show error if zoom is 90% or lower
-        if (zoomPercent <= 90) {
-            zoomError.style.display = 'block';
-        } else {
-            zoomError.style.display = 'none';
-        }
-    }
-
-    window.addEventListener('load', checkZoom);
-    window.addEventListener('resize', checkZoom);
-})();
-</script>
-
-
-
-
-
+	
 	<center><div class="container1">
 <center><h1 style="font-family:Times New Roman;"> SC</h1></center>
 		<center><h3 style="font-family:Times New Roman;"> AUTOMOTIVE</h3></center>
@@ -90,40 +30,9 @@
 	</div>
 </center>
 
-   
-   
-<style>
-  #landscape-warning {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: #000;
-    color: #fff;
-    font-size: 1.2rem;
-    text-align: center;
-    padding-top: 40vh;
-    z-index: 9999;
-  }
-</style>
 
-<div id="landscape-warning">
-  Please rotate your device to portrait mode 📱
-</div>
+ 
 
-<script>
-  function checkOrientation() {
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    if (isMobile && window.innerWidth > window.innerHeight) {
-      document.getElementById('landscape-warning').style.display = 'block';
-    } else {
-      document.getElementById('landscape-warning').style.display = 'none';
-    }
-  }
-
-  window.addEventListener('resize', checkOrientation);
-  window.addEventListener('orientationchange', checkOrientation);
-  checkOrientation();
-</script>
 	<style type="text/css">
 		*
 		{
@@ -403,6 +312,7 @@ position:center;
 </footer>
 	     </body>
    </html>
+
 
 
 
