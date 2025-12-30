@@ -194,6 +194,39 @@
   object-fit: cover;    /* prevents stretching */
   display: block;
 }
+.card1,
+.card2,
+.card3,
+.card4,
+.card5,
+.card6,
+.card7 {
+  width: 325px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  margin: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+.card-content {
+  padding: 16px;
+  flex: 1; /* ⬅️ makes all cards equal height */
+  display: flex;
+  flex-direction: column;
+}
+.card-content h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.card-content p {
+  font-size: 15px;
+  line-height: 1.4;
+  margin-top: auto; /* pushes paragraph down if titles vary */
+}
 
 .layout-wrapper {
   width: 100%;
@@ -513,6 +546,7 @@ margin:20px;
 	  </footer>
 	     </body>
    </html>
+
 
 
 
