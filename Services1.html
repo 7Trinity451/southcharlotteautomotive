@@ -22,7 +22,7 @@
 	 <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi, initial-scale=0.57:,user-scalable=yes, maximum-scale:0.5 to 0.9"/>
 	</head>
 	<body>
-		 <body>
+		
 <div id="zoomError" style="display:none; color:red; font-weight:bold;">
     Zoom too low! Please set your browser zoom to it's default(this will most likely be 100% zoom).
 </div>
@@ -65,7 +65,8 @@
 
 
 			 
-		<nav>
+	<nav class="navbar">
+  <div class="nav-inner">
 			<img src="MainPicture.png" style="width:42px;height:42px;"></a>
 				<a href= "http://7trinity451.github.io/southcharlotteautomotive/index.html">Home</a>
 		<a href=   "http://7trinity451.github.io/southcharlotteautomotive/Services1.html">Services</a>
@@ -75,7 +76,8 @@
 			<a href=  "http://7trinity451.github.io/southcharlotteautomotive/Resources.html">Q&A</a>
 
 
-	</nav>
+	</div>
+</nav>
 	<center><h1> Our Services!</h1></center>
 	<center><p> What Service Do You Need? View Our Options Below...</p></center>
 		
@@ -179,7 +181,54 @@
 	padding: 0;
 
 }
-	
+	.layout-wrapper {
+  width: 100%;
+  max-width: 3000px; /* ⬅️ makes footer & navbar longer */
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+footer.footer {
+  position: static !important;
+  padding-top: 64px; /* ⬅️ pushes footer down */
+}
+.footer {
+  margin-top: 64px; /* pushes footer down */
+
+  width: 100%;
+  background: transparent;
+  margin: 20px 0;
+}
+.footer-inner {
+    width: 100%;             /* takes the full width of the screen */
+    max-width: 100%;         /* remove max-width restriction */
+    margin: 0;               /* remove auto margin */
+    padding: 16px 24px;      /* adjust top/bottom padding */
+    
+    display: flex;
+    flex-direction: column;  /* stack content vertically */
+    justify-content: flex-start; /* align content to top */
+    align-items: center;     /* horizontally center content */
+
+    background-color: #F5F5F0;
+    border-radius: 8px;       
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+
+    box-sizing: border-box;
+    text-align: center;
+}
+.footer-inner .card-content {
+    position: relative;
+    top: -50px;  /* moves all footer content up */
+}
+
+@media (max-width: 820px) {
+  .nav-inner,
+  .footer-inner {
+    max-width: 100%;
+    padding: 16px;
+  }
+}
 	   table{
 position: relative;
 		      right: -15vw;
@@ -193,78 +242,14 @@ position: relative;
   th{
   font-family:  Courier New;
   }
-		   @media screen and (min-width:813px){
-			   html{ 
-				overflow-x: hidden !important;
-			}
-			   .footer{
-					
-				width:125% !important;
-					position: relative  !important;
-					right:15%  !important;
-					background-color:#F5F5F0  !important;
-	height: auto;
-border-radius: 8px;
-box-shadow:0px 2px 4px rgba(0,0,0,0.2);
-margin:20px;
-			 }
-			   
-			  .whitecontainer{
-display: flex !important;
-		flex-direction: column  !important;  
-			}
-				
-			   table{
-position: relative !important;
-				   right: -33vw !important;
-	}
-					   
-		   }
-	      @media screen and (max-width:812px){
-			   html{ 
-				overflow-x: hidden !important;
-			}
-			   
-			  .whitecontainer{
-display: flex !important;
-		flex-direction: column  !important;  
-			}
-				.footer{
-					
-				width:125% !important;
-					position: relative  !important;
-					right:15%  !important;
-					background-color:#F5F5F0  !important;
-	height: auto;
-border-radius: 8px;
-box-shadow:0px 2px 4px rgba(0,0,0,0.2);
-margin:20px;
-			 }
-			   table{
-position: relative !important;
-				   right: -15vw !important;
-	}
-					   
-		   }
+		 
 	   .whitecontainer{
 	display:inline-block;
 justify-content: center;
 flex-wrap: wrap;
 margin-top: 100px;
 }
-.footer{
-width:200% ;
-	   height: auto;
-					position: relative  ;
-					right:15% ;
-justify content: center;
-		align-items: center;
-background-color:#F5F5F0;
-border-radius: 8px;
-overflow: hidden;
-box-shadow:0px 2px 4px rgba(0,0,0,0.2);
-margin:20px;
-}		
+
 	   .card-content {
 			padding:16px;
 		}
@@ -274,7 +259,18 @@ margin:20px;
 		   align-items: center;
 		   overflow-x: hidden;
 	   }
-    nav{
+    .navbar {
+  width: 100%;
+  background: #fff; /* your navbar color */
+}
+
+.nav-inner {
+  max-width: 1500px; /* SAME as footer */
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+  nav{
 	position: center;
 	width: 103%;
 	top:0;
@@ -321,21 +317,18 @@ nav a:nth-child(4):hover~span{
 }
 nav a:nth-child(5):hover~span{
 }
- 
-	
-
-
-  body{
+   body{
 	  zoom: 1.0; /* Set to 1.0 for 100% zoom */
 /* Other CSS properties */
-	display: static;
-	justify-content:center;
-	align-items: center;
-	min-height:100vh;
-	background-color: #7c7c7c;
-	 max-width: 1350px;
-	    overflow-x: hidden;
-  }
+	   display:static;
+	   justify-content:center;
+	   align-items: center;
+	   min-height:100vh;
+	   background-color: #7c7c7c;
+overflow-x: hidden;
+	   
+	  
+  } 
  p {
     font-family: Courier New;
 	 position: relative;
@@ -393,9 +386,10 @@ nav a:nth-child(5):hover~span{
 	
   </style>
 	
-		 <div clas="fullcontainer">
+		 <footer class="footer">
+  <div class="footer-inner">
+<div clas="fullcontainer">
 			<div class="whitecontainer">
-<div class="footer">
 <div class=" card-content">
 <center><a href="https://www.facebook.com/profile.php"><i class="fa-brands fa-facebook"></i></a>
 <a href=" https://www.instagram.com/southcharlotteautomotive/"><i class="fa-brands fa-instagram"></i></a>
@@ -421,8 +415,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
  </script>
+			 </footer>
 </body>
  </html>
+
 
 
 
