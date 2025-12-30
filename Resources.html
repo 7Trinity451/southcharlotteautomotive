@@ -92,7 +92,7 @@
       <p>An oil change averages $35-$75 for conventional oil and $65-125 for full synthetic. You should get a conventional oil change every 3 months or 3,000 miles. If you are getting a synthetic oil change, it should be done every 5 months or 5,000 miles.</p>
     </div>
   </div>
-</div>
+
 
 		
   <div class="card">
@@ -110,7 +110,7 @@
       <p>The average brake job cost can range from $300-$600 per axle(front or rear) for pads and rotors.</p>
     </div>
   </div>
-</div>	 
+
 
 	 <div class="card">
     <img src="Strut.jpg" class="card-img">
@@ -127,7 +127,7 @@
       <p>The replacement cost for a mainstream car with an automatic transmission can range from $2,500 to $ 5,000.</p>
     </div>
   </div>
-</div>	 	
+	 	
 		  <div class="card">
     <img src="engine.jpg" class="card-img">
     <div class="card-content">
@@ -177,6 +177,17 @@
 	padding: 0;
 	font-family: courier new;	
 }
+		.card {
+  width: 325px;
+  background-color: #f0f0f0;   /* ⬅️ white card */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  
+  display: flex;
+  flex-direction: column;
+}
+
 		.cards-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -184,14 +195,15 @@
   gap: 40px;
 }
 
-.card {
-  width: 325px;
-  display: flex;
-  flex-direction: column;
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
 }
 
 .card-content {
-  flex: 1; /* ⬅️ forces equal card & container height */
+  padding: 16px;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -209,23 +221,7 @@
   object-fit: cover;    /* prevents stretching */
   display: block;
 }
-.card1,
-.card2,
-.card3,
-.card4,
-.card5,
-.card6,
-.card7 {
-  width: 325px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
-  margin: 20px;
 
-  display: flex;
-  flex-direction: column;
-}
 .card-content {
   padding: 16px;
   flex: 1; /* ⬅️ makes all cards equal height */
@@ -561,6 +557,7 @@ margin:20px;
 	  </footer>
 	     </body>
    </html>
+
 
 
 
