@@ -63,7 +63,8 @@
 })();
 </script>
 
-	<nav>
+	<nav class="navbar">
+  <div class="nav-inner">
 	<img src="MainPicture.png" style="width:42px;height:42px;"></a>
 				<a href= "http://7trinity451.github.io/southcharlotteautomotive/index.html">Home</a>
 		<a href=   "http://7trinity451.github.io/southcharlotteautomotive/Services1.html">Services</a>
@@ -72,7 +73,9 @@
 <a href=  "http://7trinity451.github.io/southcharlotteautomotive/MakeAppt.html">Book Now!</a>
 			<a href=  "http://7trinity451.github.io/southcharlotteautomotive/Resources.html">Q&A</a>
 
-	</nav>
+</div>
+</nav>
+
 <center><h1> Got a Question?</h1></center>
  <style>
   #landscape-warning {
@@ -115,28 +118,13 @@
 
 }
 	   
-	    @media screen and (max-width:832px){
-			   html{ 
-				overflow-x: hidden !important;
-			}
-			   
-			   .whitecontainer{
-display: flex !important;
-		flex-direction: column  !important;  
-			}
-				.footer{
-					
-				width:125% !important;
-					position: relative  !important;
-					right:15%  !important;
-					background-color:#F5F5F0  !important;
-	height: auto;
-border-radius: 8px;
-box-shadow:0px 2px 4px rgba(0,0,0,0.2);
-margin:20px;
-			 }
-		}
-			
+	  @media (max-width: 820px) {
+  .nav-inner,
+  .footer-inner {
+    max-width: 100%;
+    padding: 16px;
+  }
+}
     h1{
   	 color: #CC000A;
 	  font-family: Courier New;
@@ -179,22 +167,54 @@ justify-content: center;
 flex-wrap: wrap;
 margin-top: 100px;
 }
-	   .footer{
-width:200% ;
-		   height: auto;
-					position: relative  ;
-						right:5% ;
-justify content: center;
-		align-items: center;
-background-color:#F5F5F0;
-border-radius: 8px;
-overflow: hidden;
-box-shadow:0px 2px 4px rgba(0,0,0,0.2);
-margin:20px;
-}	
+	   footer.footer {
+  position: static !important;
+  padding-top: 64px; /* ⬅️ pushes footer down */
+}
+.footer {
+  margin-top: 64px; /* pushes footer down */
+
+  width: 100%;
+  background: transparent;
+  margin: 20px 0;
+}
+.footer-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+
+  /* shrink the height by reducing padding */
+  padding: 4px 24px;  /* very small top & bottom padding */
+
+  /* top-align content */
+  display: flex;
+  justify-content: center;  /* horizontal center */
+  align-items: flex-start;  /* vertical top */
+
+  background-color: #F5F5F0;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+
+  text-align: center;
+  box-sizing: border-box;
+}
+.footer-inner .card-content {
+    position: relative;
+    top: -50px;  /* moves all footer content up */
+}
 	   .card-content {
 			padding:16px;
 		}
+	   .navbar {
+  width: 100%;
+  background: #fff; /* your navbar color */
+}
+
+.nav-inner {
+  max-width: 1500px; /* SAME as footer */
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
   nav{
 	position: center;
 	width: 103%;
@@ -324,9 +344,10 @@ nav a:nth-child(5):hover~span{
 	
 	</form>
 	 </body>  
+		<footer class="footer">
+  <div class="footer-inner">
 	<div clas="fullcontainer">
 			<div class="whitecontainer">
-<div class="footer">
 <div class=" card-content">
 <center><a href="https://www.facebook.com/profile.php"><i class="fa-brands fa-facebook"></i></a>
 <a href=" https://www.instagram.com/southcharlotteautomotive/"><i class="fa-brands fa-instagram"></i></a>
@@ -339,8 +360,10 @@ nav a:nth-child(5):hover~span{
 </div>
 </div>
 </div>
-			 </div>
+				    </div>
+</footer>
  </html>
+
 
 
 
