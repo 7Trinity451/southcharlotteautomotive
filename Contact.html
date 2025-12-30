@@ -138,23 +138,22 @@ footer.footer {
   margin: 20px 0;
 }
 .footer-inner {
-  max-width: 1500px;
-  margin: 0 auto;
+    width: 100%;             /* takes the full width of the screen */
+    max-width: 100%;         /* remove max-width restriction */
+    margin: 0;               /* remove auto margin */
+    padding: 16px 24px;      /* adjust top/bottom padding */
+    
+    display: flex;
+    flex-direction: column;  /* stack content vertically */
+    justify-content: flex-start; /* align content to top */
+    align-items: center;     /* horizontally center content */
 
-  /* shrink the height by reducing padding */
-  padding: 4px 24px;  /* very small top & bottom padding */
+    background-color: #F5F5F0;
+    border-radius: 8px;       
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
 
-  /* top-align content */
-  display: flex;
-  justify-content: center;  /* horizontal center */
-  align-items: flex-start;  /* vertical top */
-
-  background-color: #F5F5F0;
-  border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
-
-  text-align: center;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
 }
 .footer-inner .card-content {
     position: relative;
@@ -383,6 +382,7 @@ overflow-x: hidden;
 </footer>
 	   </body>
  </html>
+
 
 
 
