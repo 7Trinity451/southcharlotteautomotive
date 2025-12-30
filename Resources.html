@@ -38,41 +38,7 @@
     Zoom too low! Please set your browser zoom to it's default(this will most likely be 100% zoom).
 </div>
 
-<script>
-(function() {
-    const zoomError = document.getElementById('zoomError');
 
-    function isMobile() {
-        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    }
-
-    // Capture a baseline DPR on page load
-    const BASE_DPR = window.devicePixelRatio || 1;
-
-    function getZoomPercent() {
-        return (window.devicePixelRatio / BASE_DPR) * 100;
-    }
-
-    function checkZoom() {
-        if (isMobile()) {
-            zoomError.style.display = 'none';
-            return;
-        }
-
-        const zoomPercent = getZoomPercent();
-
-        // Show error if zoom is 90% or lower
-        if (zoomPercent <= 90) {
-            zoomError.style.display = 'block';
-        } else {
-            zoomError.style.display = 'none';
-        }
-    }
-
-    window.addEventListener('load', checkZoom);
-    window.addEventListener('resize', checkZoom);
-})();
-</script>
 
 		<div class="allcontainers">
 			<center>
@@ -81,7 +47,7 @@
     <img src="MotorOil.jpg" class="card-img">
     <div class="card-content">
       <h3>What is the difference between conventional and synthetic oil?</h3>
-      <p>Synthetic oil molecules are more uniform...</p>
+      <p>Synthetic oil molecules are more uniform in shape with fewer impurities and better properties than conventional oil molecules.</p>
     </div>
   </div>
 
@@ -557,6 +523,7 @@ margin:20px;
 	  </footer>
 	     </body>
    </html>
+
 
 
 
