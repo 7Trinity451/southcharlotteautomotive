@@ -8,6 +8,7 @@
 	  <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi, initial-scale=0.5:,user-scalable=yes, maximum-scale:0.5 to 0.9"/>
  </head>
 				<body>
+					<div class="page-wrapper">
 <nav class="navbar">
   <div class="nav-inner">
 <img src="MainPicture.png" style="width:42px;height:42px;"></a>
@@ -98,6 +99,11 @@
 	padding: 0;
 	font-family: courier new;	
 }
+		.page-wrapper {
+    min-height: 100vh;        /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+}
 		main {
     flex: 1;
 }
@@ -175,7 +181,7 @@ footer.footer {
   padding-top: 64px; /* ⬅️ pushes footer down */
 }
 .footer {
-  margin-top: auto; /* pushes footer down */
+  margin-top:64px; /* pushes footer down */
 
   width: 100%;
   background: transparent;
@@ -478,11 +484,13 @@ margin:20px;
 </div>
 </div>
 </div>
+	  </div>
 			 </div> 
 	  </footer>
 	     </body>
 		</main>
    </html>
+
 
 
 
